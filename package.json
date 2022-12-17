@@ -16,7 +16,9 @@
     "express-fileupload": "^1.4.0",
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.5-lts.1",
-    "prisma": "^4.6.1"
+    "netlify-lambda": "^2.0.15",
+    "prisma": "^4.6.1",
+    "serverless-http": "^3.1.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
