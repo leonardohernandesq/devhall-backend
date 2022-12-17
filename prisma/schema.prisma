@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id String @id @default(uuid())
+  email String
+  password String
+  
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("users")
+}
+
+model House{
+  id String @id @default(uuid())
+  title String
+  price Float
+  area String
+  bedroom String
+  type String
+  status String
+  thumbnail String
+  galeryphoto String[]
+  description String
+  address String
+
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("houses")
+  broker Broker @relation(fields: [broker_id], references: [id])
+  broker_id String
+}
+
+model Broker{
+  id String @id @default(uuid())
+  name String
+  email String
+  whatsapp String
+  status Boolean @default(true)
+  phone String?
+
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("brokers")
+  house House[]
+}
