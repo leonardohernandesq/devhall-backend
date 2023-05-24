@@ -25,7 +25,7 @@ import { GetSearchHouseController } from './controllers/house/GetSearchHouseCont
 
 const router = Router();
 const upload = multer(uploadConfig.upload("./tmp/thumbnail"));
- 
+
 // ---- Rotas User ----
 router.post('/session',  new AuthUserController().handle)
 router.get('/me', isAuthenticated, new DetailUserController().handle)
